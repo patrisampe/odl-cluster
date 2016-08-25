@@ -1,0 +1,23 @@
+<md-toolbar layout="row" class="md-toolbar-tools" ng-controller="AppController">
+    <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()"
+               aria-label="Show User List">
+        <md-icon md-svg-icon="menu"></md-icon>
+    </md-button>
+    <h1>OpenDayLight</h1>
+
+    <md-button button-id="mybutton" ng-click="showAlert()">
+        Configuration
+    </md-button>
+    <div>Value: {{myvalue}} hola</div>
+    <md-button g-click="setUrlHash('templates/settings.tpl.html')" ng-class="{'selected-item': shared.currentCtrl === 'SettingsCtrl'}">
+        Dashboard
+    </md-button>
+
+    <md-button>
+        Ownership
+    </md-button>
+
+    <md-button>
+        Internals
+    </md-button>
+</md-toolbar>

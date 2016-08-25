@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <title>Angular Material - Starter App</title>
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
+  <link rel="stylesheet" href="./jspm_packages/github/angular/bower-material@master/angular-material.css"/>
+  <link rel="stylesheet" href="./assets/app.css"/>
+</head>
+<style>
+  .notactive {
+    color:white;
+
+
+
+  }
+  .active {
+    background-color:#83d9fb;
+    padding:9px;
+    color:black;
+
+  }
+</style>
+<body ng-cloak layout="column" ng-controller="AppController as app">
+
+  <!-- Container #1 (see wireframe) -->
+  <md-toolbar layout="row" style="background-color: dodgerblue" class="md-toolbar-tools">
+    <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()"
+               aria-label="Show User List">
+      <md-icon md-svg-icon="menu"></md-icon>
+    </md-button>
+    <h1>
+      <md-icon md-svg-icon="openday"></md-icon>
+      <h2>Open</h2>
+      <h2>daylight</h2>
+    </h1>
+
+
+
+    <md-button>
+      <h2 hide-xs> Configuration </h2>
+      <md-tooltip hide-sm hide-gt-sm>Configuration</md-tooltip>
+      <md-icon  hide-sm hide-gt-sm md-svg-icon="configuration" style="width: 5px"></md-icon>
+    </md-button>
+
+    <md-button  button id="mybutton" ng-class="{'active': myvalue, 'notactive': !myvalue}" ng-click="showAlert()">
+
+
+      <h2 hide-xs> Dashboard </h2>
+      <md-tooltip hide-sm hide-gt-sm>Dashboard</md-tooltip>
+      <md-icon  hide-sm hide-gt-sm md-svg-icon="dashboard"></md-icon>
+    </md-button>
+
+    <md-button button id="mybutton2" ng-click="showAlert2()">
+      Ownership
+    </md-button>
+
+    <md-button>
+      Internals
+    </md-button>
+  </md-toolbar>
+
+  <!-- Container #2 -->
+  <div flex layout="row">
+
+    <!-- Container #3 -->
+    <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')"
+                md-component-id="left" ng-click="app.toggleList()">
+      <!-- Custom UsersList component -->
+
+      <md-button>
+        <md-icon md-svg-icon="topology"></md-icon>
+        Topology
+      </md-button>
+      <md-button>
+        <md-icon md-svg-icon="inventory"></md-icon>
+        Inventory
+      </md-button>
+      <md-button>
+        <md-icon md-svg-icon="yang"></md-icon>
+        YANGMAN
+      </md-button>
+      <md-button>
+        <md-icon md-svg-icon="cluster"></md-icon>
+        Cluster
+      </md-button>
+    </md-sidenav>
+
+    <!-- Container #4 -->
+    <md-content flex id="content">
+
+      <div class=" h100" flex layout-fill ng-show="myvalue" class="ng-cloak" >
+
+      <form name="settingsForm" >
+
+        <div layout="column">
+
+          <div layout="row" layout-fill>
+            <md-card md-theme="default" md-theme-watch flex >
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Node 1</span>
+                  <img src="plot1.jpg" title="Hola">
+                  <img src="plot2.jpg" title="OVS logo">
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-content flex>
+
+
+              </md-card-content>
+            </md-card>
+
+            <md-card md-theme="default" md-theme-watch flex >
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Node 2</span>
+                  <img src="plot1.jpg" title="OVS logo">
+                  <img src="plot2.jpg" title="OVS logo">
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-content flex>
+
+
+              </md-card-content>
+            </md-card>
+            <md-card md-theme="default" md-theme-watch flex >
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Node n</span>
+                  <img src="plot1.jpg" title="OVS logo">
+                  <img src="plot2.jpg" title="OVS logo">
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-content flex>
+
+
+              </md-card-content>
+            </md-card>
+
+          </div>
+
+
+          <div layout="row" layout-fill flex>
+            <div class="footer-filler"></div>
+          </div>
+        </div>
+
+
+      </form>
+
+
+    </div>
+
+
+
+
+
+      <div class=" h100" flex layout-fill ng-show="myvalue2" class="ng-cloak" >
+
+        <form name="settingsForm" >
+
+          <div layout="column">
+
+            <div layout="row" layout-fill>
+
+              <div layout="column" class="note" >
+
+
+                <h1 align="center"> Entity </h1>
+
+                <md-card md-theme="default" md-theme-watch flex>
+                  <md-card-title >
+                    <md-card-title-text >
+                      <span  > Category</span>
+                      <span > Name</span>
+                      <span > What else?</span>
+                      <span > What else?</span>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
+                <md-card md-theme="default" md-theme-watch flex >
+                  <md-card-title>
+                    <md-card-title-text>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
+                <md-card md-theme="default" md-theme-watch flex >
+                  <md-card-title>
+                    <md-card-title-text>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
+              </div>
+
+              <div layout="column" class="note">
+                <h1 align="center"> Leader </h1>
+
+
+                <md-card md-theme="default" md-theme-watch flex >
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span class="note"> Category:Shard</span>
+                      <span class="note"> Shard Name</span>
+                      <span class="note"> shard-inventory-config</span>
+                      <span class="note"> ip Address: 172.17.0.2</span>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
+                <md-card md-theme="default" md-theme-watch flex >
+                  <md-card-title>
+                    <md-card-title-text>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
+                <md-card md-theme="default" md-theme-watch flex >
+                  <md-card-title>
+                    <md-card-title-text>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
+              </div>
+
+              <div layout="column" class="note">
+                <h1 align="center"> Follower </h1>
+
+
+                <md-card md-theme="default" md-theme-watch flex >
+                <md-card-title>
+                  <md-card-title-text>
+                    <span > Category:Shard</span>
+                    <span > Shard Name</span>
+                    <span > shard-inventory-config</span>
+                    <span > ip Address: 172.17.0.2</span>
+                  </md-card-title-text>
+                </md-card-title>
+
+              </md-card>
+
+              <md-card md-theme="default" md-theme-watch flex >
+                <md-card-title>
+                  <md-card-title-text>
+                  </md-card-title-text>
+                </md-card-title>
+
+              </md-card>
+
+              <md-card md-theme="default" md-theme-watch flex >
+                <md-card-title>
+                  <md-card-title-text>
+                  </md-card-title-text>
+                </md-card-title>
+
+              </md-card>
+
+            </div>
+
+              <div layout="column" class="note">
+                <h1 align="center"> Follower </h1>
+
+
+                <md-card md-theme="default" md-theme-watch flex >
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span > Category:Shard</span>
+                      <span > Shard Name</span>
+                      <span > shard-inventory-config</span>
+                      <span > ip Address: 172.17.0.2</span>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
+                <md-card md-theme="default" md-theme-watch flex >
+                  <md-card-title>
+                    <md-card-title-text>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
+                <md-card md-theme="default" md-theme-watch flex >
+                  <md-card-title>
+                    <md-card-title-text>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
+              </div>
+            </div>
+
+
+            <div layout="row" layout-fill flex>
+              <div class="footer-filler"></div>
+            </div>
+          </div>
+
+
+        </form>
+
+
+      </div>
+    </md-content>
+
+  </div>
+
+  <script src="./jspm_packages/system.js" type="text/javascript"></script>
+  <script src="config.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    System
+        .import('src/boot/boot')
+        .catch( console.error.bind(console) ); // make sure any errors print to console
+  </script>
+  <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
