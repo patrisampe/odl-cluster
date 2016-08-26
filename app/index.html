@@ -128,43 +128,56 @@
 
         <div layout="column">
 
-
           <div layout="row" layout-fill>
+
             <md-card md-theme="default" md-theme-watch flex >
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-headline">Node 1</span>
-                  <img src="plot1.jpg" title="Hola">
-                  <img src="plot2.jpg" title="OVS logo">
-                </md-card-title-text>
-              </md-card-title>
+              <div layout="row" >
+                <md-button class="md-icon-button md-primary">
+                  <md-icon md-svg-icon="close"></md-icon>
+                </md-button>
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline" layout-align="center">Node 1</span>
+                  </md-card-title-text>
+                </md-card-title>
+              </div>
+              <img src="plot1.jpg" title="Hola">
+              <img src="plot2.jpg" title="OVS logo">
+              <md-card-content flex>
+              </md-card-content>
+            </md-card>
+
+            <md-card md-theme="default" md-theme-watch flex >
+              <div layout="row" >
+                <md-button class="md-icon-button md-primary">
+                  <md-icon md-svg-icon="close"></md-icon>
+                </md-button>
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline" layout-align="center">Node 2</span>
+                  </md-card-title-text>
+                </md-card-title>
+              </div>
+              <img src="plot1.jpg" title="OVS logo">
+              <img src="plot2.jpg" title="OVS logo">
               <md-card-content flex>
 
 
               </md-card-content>
             </md-card>
-
             <md-card md-theme="default" md-theme-watch flex >
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-headline">Node 2</span>
-                  <img src="plot1.jpg" title="OVS logo">
-                  <img src="plot2.jpg" title="OVS logo">
-                </md-card-title-text>
-              </md-card-title>
-              <md-card-content flex>
-
-
-              </md-card-content>
-            </md-card>
-            <md-card md-theme="default" md-theme-watch flex >
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-headline">Node n</span>
-                  <img src="plot1.jpg" title="OVS logo">
-                  <img src="plot2.jpg" title="OVS logo">
-                </md-card-title-text>
-              </md-card-title>
+              <div layout="row" >
+                <md-button class="md-icon-button md-primary">
+                  <md-icon md-svg-icon="close"></md-icon>
+                </md-button>
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline">Node n</span>
+                  </md-card-title-text>
+                </md-card-title>
+              </div>
+              <img src="plot1.jpg" title="OVS logo">
+              <img src="plot2.jpg" title="OVS logo">
               <md-card-content flex>
 
 
@@ -172,12 +185,7 @@
             </md-card>
 
           </div>
-
-
-          <div layout="row" layout-fill flex>
-            <div class="footer-filler"></div>
           </div>
-        </div>
 
 
       </form>
@@ -299,11 +307,12 @@
           <div layout="column">
 
             <div layout="row">
-            <select style="width: 20%">
+            <select style="width: 20%" name="singleSelect" ng-model="data.singleSelect">
 
-              <option value="hola"> Hola </option>
-              <option value="hola2"> Hola2 </option>
+              <option value="option-1"> shard-no-problems </option>
+              <option value="option-2"> shard-problems </option>
             </select>
+
 
 
               </div>
@@ -321,9 +330,11 @@
                     <md-card-title-text >
                       <span  > Shard Inventory</span>
 
-                      <i class="material-icons md-green md-48">done</i>
+                      <i class="material-icons md-green md-48" ng-show="data.singleSelect == 'option-1'">done</i>
+                      <i class="material-icons md-red md-48" ng-show="data.singleSelect == 'option-2'">report_problem</i>
+
                       <label class="switch">
-                        <input type="checkbox">
+                        <input type="checkbox" ng-click="goToProblems()" >
                         <div class="slider round"></div>
                       </label>
 
@@ -332,11 +343,13 @@
 
                 </md-card>
 
-                <md-card md-theme="default" md-theme-watch flex >
+                <md-card md-theme="default" md-theme-watch ng-show="problems && (data.singleSelect == 'option-1' || data.singleSelect == 'option-2')" flex >
                   <md-card-title>
                     <md-card-title-text>
-                      <i class="material-icons md-green md-13" style="padding-left: 100px">done</i>
-                      <span  > All Good</span>
+                      <i class="material-icons md-green md-13" style="padding-left: 100px" ng-show="data.singleSelect == 'option-1'">done</i>
+                      <i class="material-icons md-red md-13" style="padding-left: 100px" ng-show="data.singleSelect == 'option-2'">report_problem</i>
+                      <span ng-show="data.singleSelect == 'option-1'" > All Good</span>
+                      <span ng-show="data.singleSelect == 'option-2'" > Some problems</span>
 
                     </md-card-title-text>
                   </md-card-title>
@@ -365,10 +378,16 @@
 
                 </md-card>
 
-                
 
-                <md-radio-group style="padding-left: 10px" ng-model="false">
-                  <md-radio-button  ng-class="{'md-checked':true}" value="Apple">Apple</md-radio-button>
+
+                <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-1' ">
+                  <md-radio-button value="Apple">Apple</md-radio-button>
+                  <md-radio-button value="Banana"> Banana </md-radio-button>
+                  <md-radio-button value="Mango">Mango</md-radio-button>
+                </md-radio-group>
+
+                <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-2' ">
+                  <md-radio-button  ng-class="{'md-checked':true }" value="Apple">Apple</md-radio-button>
                   <md-radio-button value="Banana"> Banana </md-radio-button>
                   <md-radio-button value="Mango">Mango</md-radio-button>
                 </md-radio-group>
@@ -392,21 +411,18 @@
 
                 </md-card>
 
-                <md-card md-theme="default" md-theme-watch flex >
-                  <md-card-title>
-                    <md-card-title-text>
-                    </md-card-title-text>
-                  </md-card-title>
+                <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-1' ">
+                  <md-radio-button value="Apple">Apple</md-radio-button>
+                  <md-radio-button value="Banana"> Banana </md-radio-button>
+                  <md-radio-button value="Mango">Mango</md-radio-button>
+                </md-radio-group>
 
-                </md-card>
+                <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-2' ">
+                  <md-radio-button  ng-class="{'md-checked':true }" value="Apple">Apple</md-radio-button>
+                  <md-radio-button value="Banana"> Banana </md-radio-button>
+                  <md-radio-button value="Mango">Mango</md-radio-button>
+                </md-radio-group>
 
-                <md-card md-theme="default" md-theme-watch flex >
-                  <md-card-title>
-                    <md-card-title-text>
-                    </md-card-title-text>
-                  </md-card-title>
-
-                </md-card>
 
               </div>
 
@@ -426,21 +442,17 @@
 
                 </md-card>
 
-                <md-card md-theme="default" md-theme-watch flex >
-                  <md-card-title>
-                    <md-card-title-text>
-                    </md-card-title-text>
-                  </md-card-title>
+                <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-1' ">
+                  <md-radio-button value="Apple">Apple</md-radio-button>
+                  <md-radio-button value="Banana"> Banana </md-radio-button>
+                  <md-radio-button value="Mango">Mango</md-radio-button>
+                </md-radio-group>
 
-                </md-card>
-
-                <md-card md-theme="default" md-theme-watch flex >
-                  <md-card-title>
-                    <md-card-title-text>
-                    </md-card-title-text>
-                  </md-card-title>
-
-                </md-card>
+                <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-2' ">
+                  <md-radio-button  ng-class="{'md-checked':true }" value="Apple">Apple</md-radio-button>
+                  <md-radio-button value="Banana"> Banana </md-radio-button>
+                  <md-radio-button value="Mango">Mango</md-radio-button>
+                </md-radio-group>
 
               </div>
             </div>

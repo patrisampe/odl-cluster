@@ -14,6 +14,7 @@ function AppController(UsersDataService, $mdSidenav,$scope) {
   $scope.myvalue = false;
   $scope.myvalue2 = false;
   $scope.myvalue3 = false;
+  $scope.problems = false;
 
   // Load all registered users
 
@@ -47,13 +48,14 @@ function AppController(UsersDataService, $mdSidenav,$scope) {
     $scope.myvalue = true;
     $scope.myvalue2 = false;
     $scope.myvalue3 = false;
-
+    $scope.problems = false;
   };
 
   $scope.showAlert2 = function(){
     $scope.myvalue2 = true;
     $scope.myvalue = false;
     $scope.myvalue3 = false;
+    $scope.problems = false;
 
   };
 
@@ -61,6 +63,7 @@ function AppController(UsersDataService, $mdSidenav,$scope) {
     $scope.myvalue2 = false;
     $scope.myvalue = false;
     $scope.myvalue3 = true;
+    $scope.problems = false;
 
   };
 
@@ -69,9 +72,13 @@ function AppController(UsersDataService, $mdSidenav,$scope) {
     $scope.myvalue3 = true;
     $scope.myvalue2 = false;
     $scope.myvalue = false;
+    $scope.problems = false;
 
   };
 
+  $scope.goToProblems = function(){
+    $scope.problems = !$scope.problems;
+  };
 
 
 }

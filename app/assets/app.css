@@ -132,10 +132,16 @@ input:checked + .slider:before {
 
 
 
-.material-icons.md-green { color: green }
+.material-icons.md-green { color: green; }
+
 .material-icons.md-48 { font-size: 48px; }
 
 .material-icons.md-13 { font-size: 13px; }
+
+
+
+.material-icons.md-red { color: red; }
+
 .md-toolbar{
 
   background-color: blue;
