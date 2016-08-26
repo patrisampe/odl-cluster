@@ -10,6 +10,18 @@ html, body {
   padding: 0px;
 }
 
+h5{
+
+  padding-top: 33px;
+
+}
+
+.patri2{
+  padding-right: 100px;
+  padding-left: 100px;
+  color: green;
+}
+
 /* Toolbar area */
 
 .dropdown {
@@ -122,6 +134,8 @@ input:checked + .slider:before {
 
 .material-icons.md-green { color: green }
 .material-icons.md-48 { font-size: 48px; }
+
+.material-icons.md-13 { font-size: 13px; }
 .md-toolbar{
 
   background-color: blue;
