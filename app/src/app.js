@@ -25,9 +25,10 @@ export default angular.module( 'starter-app', [ 'ngMaterial', Users.name ] )
       .icon("topology", "./assets/svg/topology.svg", 24)
       .icon("dashboard", "./assets/svg/dashboard.svg", 24)
       .icon("configuration", "./assets/svg/configuration.svg", 24)
+      .icon("search", "./assets/svg/search.svg", 24)
       .icon("openday", "./assets/svg/open.svg", 24);
     $mdThemingProvider.theme('default')
-      .primaryPalette('brown')
+      .primaryPalette('green')
       .accentPalette('red');
   })
   .controller('AppController', AppController);

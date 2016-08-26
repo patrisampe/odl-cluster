@@ -10,6 +10,8 @@
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
   <link rel="stylesheet" href="./jspm_packages/github/angular/bower-material@master/angular-material.css"/>
   <link rel="stylesheet" href="./assets/app.css"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
 </head>
 <style>
   .notactive {
@@ -77,12 +79,11 @@
       Internals
     </md-button>
 
-    <form style=" float:right; text-align:right " ng-show="myvalue2 || myvalue3">
-      <md-icon md-svg-icon="share"></md-icon>
-      <input type="search" name="search">
-
-
-    </form>
+    <md-input-container md-no-float class="md-block" >
+      <md-icon md-svg-src="search"></md-icon>
+      <input ng-model="searchbox" type="text" placeholder="Search" class="searchbox">
+      <span flex></span>
+    </md-input-container>
 
 
 
@@ -318,6 +319,11 @@
                     <md-card-title-text >
                       <span  > Shard Inventory</span>
 
+                      <label class="switch">
+                        <input type="checkbox">
+                        <div class="slider round"></div>
+                      </label>
+
                     </md-card-title-text>
                   </md-card-title>
 
@@ -327,10 +333,13 @@
                   <md-card-title>
                     <md-card-title-text>
                       <span  > All Good</span>
+                      <i class="material-icons md-green md-48">done</i>
                     </md-card-title-text>
                   </md-card-title>
 
                 </md-card>
+
+
 
 
 
@@ -352,8 +361,18 @@
 
                 </md-card>
 
-                <label><input type="checkbox" value="prueva">Prueva </label><br>
 
+
+
+                <input type="radio" value="prueba"><label>Prueba</label>
+                <input type="radio" name="gender" value="male" checked> Male<br>
+
+
+
+                <label class="switch">
+                  <input type="checkbox">
+                  <div class="slider round">Hola</div>
+                </label>
 
                 <md-card md-theme="default" md-theme-watch flex >
                   <md-card-title>
@@ -362,6 +381,13 @@
                   </md-card-title>
 
                 </md-card>
+
+                <md-radio-group style="padding-left: 10px" >
+                  <md-radio-button  ng-class="{'md-checked':true}" value="Apple">Apple</md-radio-button>
+                  <md-radio-button value="Banana"> Banana </md-radio-button>
+                  <md-radio-button value="Mango">Mango</md-radio-button>
+                </md-radio-group>
+
 
               </div>
 
