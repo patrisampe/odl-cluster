@@ -13,6 +13,7 @@ function AppController(UsersDataService, $mdSidenav,$scope) {
   self.toggleList   = toggleUsersList;
   $scope.myvalue = false;
   $scope.myvalue2 = false;
+  $scope.myvalue3 = false;
 
   // Load all registered users
 
@@ -45,15 +46,34 @@ function AppController(UsersDataService, $mdSidenav,$scope) {
   $scope.showAlert = function(){
     $scope.myvalue = true;
     $scope.myvalue2 = false;
-
+    $scope.myvalue3 = false;
 
   };
 
   $scope.showAlert2 = function(){
     $scope.myvalue2 = true;
     $scope.myvalue = false;
-  };
-}
+    $scope.myvalue3 = false;
 
+  };
+
+  $scope.alertaa = function(){
+    $scope.myvalue2 = false;
+    $scope.myvalue = false;
+    $scope.myvalue3 = true;
+
+  };
+
+
+  $scope.showAlert3 = function(){
+    $scope.myvalue3 = true;
+    $scope.myvalue2 = false;
+    $scope.myvalue = false;
+
+  };
+
+
+
+}
 export default [ 'UsersDataService', '$mdSidenav', '$scope',AppController ];
 

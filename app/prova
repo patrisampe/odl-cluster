@@ -1,0 +1,43 @@
+ <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()"
+               aria-label="Show User List">
+      <md-icon md-svg-icon="menu"></md-icon>
+    </md-button>
+    <h1>
+      <md-icon md-svg-icon="openday"></md-icon>
+      <h2>Open</h2>
+      <h2>daylight</h2>
+    </h1>
+
+
+
+
+
+
+
+    <md-button>
+      <h2> Configuration </h2>
+
+      <ul>
+        <li>SUBMENÚ 1</li>
+        <li>SUBMENÚ 2</li>
+      </ul>
+
+
+    </md-button>
+
+    <md-button  button id="mybutton" ng-class="{'active': myvalue, 'notactive': !myvalue}" ng-click="showAlert()">
+
+
+      <h2 hide-xs> Stadistics </h2>
+      <md-tooltip hide-sm hide-gt-sm>Stadistics</md-tooltip>
+      <md-icon  hide-sm hide-gt-sm md-svg-icon="dashboard"></md-icon>
+
+    </md-button>
+
+    <md-button button id="mybutton2" ng-click="showAlert2()">
+      Shard Manager
+    </md-button>
+
+    <md-button>
+      Internals
+    </md-button>

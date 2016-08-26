@@ -27,8 +27,13 @@
 </style>
 <body ng-cloak layout="column" ng-controller="AppController as app">
 
-  <!-- Container #1 (see wireframe) -->
+
+
+
+<!-- Container #1 (see wireframe) -->
   <md-toolbar layout="row" style="background-color: dodgerblue" class="md-toolbar-tools">
+
+
     <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()"
                aria-label="Show User List">
       <md-icon md-svg-icon="menu"></md-icon>
@@ -40,12 +45,11 @@
     </h1>
 
 
-
     <md-button>
-      <h2 hide-xs> Configuration </h2>
-      <md-tooltip hide-sm hide-gt-sm>Configuration</md-tooltip>
-      <md-icon  hide-sm hide-gt-sm md-svg-icon="configuration" style="width: 5px"></md-icon>
+       Configuration
+
     </md-button>
+
 
     <md-button  button id="mybutton" ng-class="{'active': myvalue, 'notactive': !myvalue}" ng-click="showAlert()">
 
@@ -53,16 +57,38 @@
       <h2 hide-xs> Stadistics </h2>
       <md-tooltip hide-sm hide-gt-sm>Stadistics</md-tooltip>
       <md-icon  hide-sm hide-gt-sm md-svg-icon="dashboard"></md-icon>
-      
+
     </md-button>
 
-    <md-button button id="mybutton2" ng-click="showAlert2()">
-      Shard Manager
-    </md-button>
+    <div class="dropdown">
+      <md-button >
+        Shard Manager
+      </md-button>
+
+      <div class="dropdown-content">
+          <md-button button id="mybutton3" ng-click="showAlert2()">Member View</md-button>
+          <md-button button id="mybutton2" ng-click="showAlert3()">Shard View</md-button>
+      </div>
+
+    </div>
+
 
     <md-button>
       Internals
     </md-button>
+
+    <form style=" float:right; text-align:right " ng-show="myvalue2 || myvalue3">
+      <md-icon md-svg-icon="share"></md-icon>
+      <input type="search" name="search">
+
+
+    </form>
+
+
+
+
+
+
   </md-toolbar>
 
   <!-- Container #2 -->
@@ -98,7 +124,9 @@
 
       <form name="settingsForm" >
 
+
         <div layout="column">
+
 
           <div layout="row" layout-fill>
             <md-card md-theme="default" md-theme-watch flex >
@@ -160,6 +188,7 @@
 
 
 
+
       <div class=" h100" flex layout-fill ng-show="myvalue2" class="ng-cloak" >
 
         <form name="settingsForm" >
@@ -171,7 +200,7 @@
               <div layout="column" class="note" >
 
 
-                <h1 align="center"> Entity </h1>
+                <h1 align="center"> Member1 </h1>
 
                 <md-card md-theme="default" md-theme-watch flex>
                   <md-card-title >
@@ -185,9 +214,110 @@
 
                 </md-card>
 
+
+
+              </div>
+
+              <div layout="column" class="note">
+                <h1 align="center"> Member 2 </h1>
+
+
                 <md-card md-theme="default" md-theme-watch flex >
                   <md-card-title>
                     <md-card-title-text>
+                      <span class="note"> Category:Shard</span>
+                      <span class="note"> Shard Name</span>
+                      <span class="note"> shard-inventory-config</span>
+                      <span class="note"> ip Address: 172.17.0.2</span>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
+
+
+
+
+              </div>
+
+              <div layout="column" class="note">
+                <h1 align="center"> Member 3 </h1>
+
+
+                <md-card md-theme="default" md-theme-watch flex >
+                <md-card-title>
+                  <md-card-title-text>
+                    <span > Category:Shard</span>
+                    <span > Shard Name</span>
+                    <span > shard-inventory-config</span>
+                    <span > ip Address: 172.17.0.2</span>
+                  </md-card-title-text>
+                </md-card-title>
+
+              </md-card>
+
+
+
+            </div>
+
+
+            </div>
+
+
+            <div layout="row" layout-fill flex>
+              <div class="footer-filler"></div>
+            </div>
+          </div>
+
+
+        </form>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class=" h100" flex layout-fill ng-show="myvalue3" class="ng-cloak" >
+
+        <form name="settingsForm" >
+
+          <div layout="column">
+
+            <div layout="row">
+            <select style="width: 20%">
+
+              <option value="hola"> Hola </option>
+              <option value="hola2"> Hola2 </option>
+            </select>
+
+
+              </div>
+            <div layout="row" layout-fill>
+
+              <div layout="column" class="note" >
+
+
+
+
+                <md-card md-theme="default" md-theme-watch flex>
+                  <md-card-title >
+                    <md-card-title-text >
+                      <span  > Shard Inventory</span>
+
                     </md-card-title-text>
                   </md-card-title>
 
@@ -196,10 +326,13 @@
                 <md-card md-theme="default" md-theme-watch flex >
                   <md-card-title>
                     <md-card-title-text>
+                      <span  > All Good</span>
                     </md-card-title-text>
                   </md-card-title>
 
                 </md-card>
+
+
 
               </div>
 
@@ -219,6 +352,35 @@
 
                 </md-card>
 
+                <label><input type="checkbox" value="prueva">Prueva </label><br>
+
+
+                <md-card md-theme="default" md-theme-watch flex >
+                  <md-card-title>
+                    <md-card-title-text>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
+              </div>
+
+              <div layout="column" class="note">
+                <h1 align="center"> Follower </h1>
+
+
+                <md-card md-theme="default" md-theme-watch flex >
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span > Category:Shard</span>
+                      <span > Shard Name</span>
+                      <span > shard-inventory-config</span>
+                      <span > ip Address: 172.17.0.2</span>
+                    </md-card-title-text>
+                  </md-card-title>
+
+                </md-card>
+
                 <md-card md-theme="default" md-theme-watch flex >
                   <md-card-title>
                     <md-card-title-text>
@@ -236,40 +398,6 @@
                 </md-card>
 
               </div>
-
-              <div layout="column" class="note">
-                <h1 align="center"> Follower </h1>
-
-
-                <md-card md-theme="default" md-theme-watch flex >
-                <md-card-title>
-                  <md-card-title-text>
-                    <span > Category:Shard</span>
-                    <span > Shard Name</span>
-                    <span > shard-inventory-config</span>
-                    <span > ip Address: 172.17.0.2</span>
-                  </md-card-title-text>
-                </md-card-title>
-
-              </md-card>
-
-              <md-card md-theme="default" md-theme-watch flex >
-                <md-card-title>
-                  <md-card-title-text>
-                  </md-card-title-text>
-                </md-card-title>
-
-              </md-card>
-
-              <md-card md-theme="default" md-theme-watch flex >
-                <md-card-title>
-                  <md-card-title-text>
-                  </md-card-title-text>
-                </md-card-title>
-
-              </md-card>
-
-            </div>
 
               <div layout="column" class="note">
                 <h1 align="center"> Follower </h1>
@@ -317,6 +445,19 @@
 
 
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </md-content>
 
   </div>
@@ -329,5 +470,6 @@
         .catch( console.error.bind(console) ); // make sure any errors print to console
   </script>
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="src/path.js"></script>
 </body>
 </html>
