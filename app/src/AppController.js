@@ -15,6 +15,9 @@ function AppController(UsersDataService, $mdSidenav,$scope) {
   $scope.myvalue2 = false;
   $scope.myvalue3 = false;
   $scope.problems = false;
+  $scope.node1 = true;
+  $scope.node2 = true;
+  $scope.node3 = true;
 
   // Load all registered users
 
@@ -79,6 +82,19 @@ function AppController(UsersDataService, $mdSidenav,$scope) {
   $scope.goToProblems = function(){
     $scope.problems = !$scope.problems;
   };
+
+  $scope.closenode1 = function(){
+    $scope.node1 = false;
+  };
+
+  $scope.closenode2 = function(){
+    $scope.node2 = false;
+  };
+
+  $scope.closenode3 = function(){
+    $scope.node3 = false;
+  };
+
 
 
 }

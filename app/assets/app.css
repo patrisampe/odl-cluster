@@ -132,7 +132,10 @@ input:checked + .slider:before {
 
 
 
-.material-icons.md-green { color: green; }
+.material-icons.md-green {
+  color: green;
+  display: inline-flex;
+  vertical-align: middle; }
 
 .material-icons.md-48 { font-size: 48px; }
 
@@ -164,6 +167,7 @@ input:checked + .slider:before {
 md-toolbar h1 {
   margin: auto;
 }
+
 
 md-toolbar .md-button{
 

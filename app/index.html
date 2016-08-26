@@ -13,20 +13,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet">
 </head>
-<style>
-  .notactive {
-    color:white;
 
-
-
-  }
-  .active {
-    background-color:#83d9fb;
-    padding:9px;
-    color:black;
-
-  }
-</style>
 <body ng-cloak layout="column" ng-controller="AppController as app">
 
 
@@ -49,6 +36,7 @@
 
     <md-button>
        Configuration
+
 
     </md-button>
 
@@ -130,9 +118,9 @@
 
           <div layout="row" layout-fill>
 
-            <md-card md-theme="default" md-theme-watch flex >
+            <md-card md-theme="default" md-theme-watch ng-show="node1" flex="30" >
               <div layout="row" >
-                <md-button class="md-icon-button md-primary">
+                <md-button class="md-icon-button md-primary" ng-click="closenode1()">
                   <md-icon md-svg-icon="close"></md-icon>
                 </md-button>
                 <md-card-title>
@@ -147,9 +135,10 @@
               </md-card-content>
             </md-card>
 
-            <md-card md-theme="default" md-theme-watch flex >
+
+            <md-card md-theme="default" md-theme-watch ng-show="node2" flex="30"  >
               <div layout="row" >
-                <md-button class="md-icon-button md-primary">
+                <md-button class="md-icon-button md-primary" ng-click="closenode2()">
                   <md-icon md-svg-icon="close"></md-icon>
                 </md-button>
                 <md-card-title>
@@ -165,9 +154,9 @@
 
               </md-card-content>
             </md-card>
-            <md-card md-theme="default" md-theme-watch flex >
+            <md-card md-theme="default" md-theme-watch ng-show="node3" flex="30"  >
               <div layout="row" >
-                <md-button class="md-icon-button md-primary">
+                <md-button class="md-icon-button md-primary" ng-click="closenode3()">
                   <md-icon md-svg-icon="close"></md-icon>
                 </md-button>
                 <md-card-title>
@@ -214,10 +203,17 @@
                 <md-card md-theme="default" md-theme-watch flex>
                   <md-card-title >
                     <md-card-title-text >
-                      <span  > Category</span>
-                      <span > Name</span>
-                      <span > What else?</span>
-                      <span > What else?</span>
+                      <span  > "member-name": "member-1",
+        "member-address": "172.17.0.4",
+        "local-shards": [
+          "member-3-shard-toaster-operational",
+          "member-3-shard-inventory-operational",
+          "member-3-shard-default-operational",
+          "member-3-shard-topology-operational",
+          "member-3-shard-entity-ownership-operational"
+        ],
+        "voter": true</span>
+
                     </md-card-title-text>
                   </md-card-title>
 
@@ -234,10 +230,17 @@
                 <md-card md-theme="default" md-theme-watch flex >
                   <md-card-title>
                     <md-card-title-text>
-                      <span class="note"> Category:Shard</span>
-                      <span class="note"> Shard Name</span>
-                      <span class="note"> shard-inventory-config</span>
-                      <span class="note"> ip Address: 172.17.0.2</span>
+                      <span class="note"> "member-name": "member-2",
+        "member-address": "172.17.0.4",
+        "local-shards": [
+          "member-3-shard-toaster-operational",
+          "member-3-shard-inventory-operational",
+          "member-3-shard-default-operational",
+          "member-3-shard-topology-operational",
+          "member-3-shard-entity-ownership-operational"
+        ],
+        "voter": true</span>
+
                     </md-card-title-text>
                   </md-card-title>
 
@@ -256,10 +259,17 @@
                 <md-card md-theme="default" md-theme-watch flex >
                 <md-card-title>
                   <md-card-title-text>
-                    <span > Category:Shard</span>
-                    <span > Shard Name</span>
-                    <span > shard-inventory-config</span>
-                    <span > ip Address: 172.17.0.2</span>
+                    <span > "member-name": "member-3",
+        "member-address": "172.17.0.4",
+        "local-shards": [
+          "member-3-shard-toaster-operational",
+          "member-3-shard-inventory-operational",
+          "member-3-shard-default-operational",
+          "member-3-shard-topology-operational",
+          "member-3-shard-entity-ownership-operational"
+        ],
+        "voter": true</span>
+
                   </md-card-title-text>
                 </md-card-title>
 
@@ -351,6 +361,9 @@
                       <span ng-show="data.singleSelect == 'option-1'" > All Good</span>
                       <span ng-show="data.singleSelect == 'option-2'" > Some problems</span>
 
+                      <span ng-show="data.singleSelect == 'option-2'" >  Pendig-tx-queue-size</span>
+                      <span ng-show="data.singleSelect == 'option-2'" > time-since-last activity</span>
+                      <span ng-show="data.singleSelect == 'option-2'" > Some problems</span>
                     </md-card-title-text>
                   </md-card-title>
 
@@ -369,10 +382,9 @@
                 <md-card md-theme="default" md-theme-watch flex >
                   <md-card-title>
                     <md-card-title-text>
-                      <span class="note"> Category:Shard</span>
-                      <span class="note"> Shard Name</span>
-                      <span class="note"> shard-inventory-config</span>
-                      <span class="note"> ip Address: 172.17.0.2</span>
+                      <span class="note"> Shard: Inventory</span>
+                      <span class="note"> Member 1</span>
+
                     </md-card-title-text>
                   </md-card-title>
 
@@ -381,15 +393,21 @@
 
 
                 <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-1' ">
-                  <md-radio-button value="Apple">Apple</md-radio-button>
-                  <md-radio-button value="Banana"> Banana </md-radio-button>
-                  <md-radio-button value="Mango">Mango</md-radio-button>
+                  <md-radio-button value="Apple">Pending-tx-queue-size</md-radio-button>
+                  <md-radio-button value="Banana"> Timestamp </md-radio-button>
+                  <md-radio-button value="Mango">last-applied</md-radio-button>
+                  <md-radio-button value="Mango">last-index</md-radio-button>
+                  <md-radio-button value="Mango">commit-index</md-radio-button>
+                  <md-radio-button value="Mango">replicated to all index</md-radio-button>
                 </md-radio-group>
 
                 <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-2' ">
-                  <md-radio-button  ng-class="{'md-checked':true }" value="Apple">Apple</md-radio-button>
-                  <md-radio-button value="Banana"> Banana </md-radio-button>
-                  <md-radio-button value="Mango">Mango</md-radio-button>
+                  <md-radio-button  ng-class="{'md-checked':true }" value="Apple">Pending-tx-queue-size</md-radio-button>
+                  <md-radio-button value="Banana"> Timestamp </md-radio-button>
+                  <md-radio-button value="Mango">last-applied</md-radio-button>
+                  <md-radio-button value="Mango">last-index</md-radio-button>
+                  <md-radio-button value="Mango">commit-index</md-radio-button>
+                  <md-radio-button value="Mango">replicated to all index</md-radio-button>
                 </md-radio-group>
 
 
@@ -402,25 +420,23 @@
                 <md-card md-theme="default" md-theme-watch flex >
                   <md-card-title>
                     <md-card-title-text>
-                      <span > Category:Shard</span>
-                      <span > Shard Name</span>
-                      <span > shard-inventory-config</span>
-                      <span > ip Address: 172.17.0.2</span>
+                      <span class="note"> Shard: Inventory</span>
+                      <span class="note"> Member 2</span>
                     </md-card-title-text>
                   </md-card-title>
 
                 </md-card>
 
                 <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-1' ">
-                  <md-radio-button value="Apple">Apple</md-radio-button>
-                  <md-radio-button value="Banana"> Banana </md-radio-button>
-                  <md-radio-button value="Mango">Mango</md-radio-button>
+                  <md-radio-button value="Apple">Time-since-last activity</md-radio-button>
+                  <md-radio-button value="Banana"> match-index </md-radio-button>
+
                 </md-radio-group>
 
                 <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-2' ">
-                  <md-radio-button  ng-class="{'md-checked':true }" value="Apple">Apple</md-radio-button>
-                  <md-radio-button value="Banana"> Banana </md-radio-button>
-                  <md-radio-button value="Mango">Mango</md-radio-button>
+                  <md-radio-button  ng-class="{'md-checked':true }" value="Apple">Time-since-last activity</md-radio-button>
+                  <md-radio-button value="Banana"> match-index </md-radio-button>
+
                 </md-radio-group>
 
 
@@ -433,25 +449,23 @@
                 <md-card md-theme="default" md-theme-watch flex >
                   <md-card-title>
                     <md-card-title-text>
-                      <span > Category:Shard</span>
-                      <span > Shard Name</span>
-                      <span > shard-inventory-config</span>
-                      <span > ip Address: 172.17.0.2</span>
+                      <span class="note"> Shard: Inventory</span>
+                      <span class="note"> Member 3</span>
                     </md-card-title-text>
                   </md-card-title>
 
                 </md-card>
 
                 <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-1' ">
-                  <md-radio-button value="Apple">Apple</md-radio-button>
-                  <md-radio-button value="Banana"> Banana </md-radio-button>
-                  <md-radio-button value="Mango">Mango</md-radio-button>
+                  <md-radio-button value="Apple">Time-since-last activity</md-radio-button>
+                  <md-radio-button value="Banana"> match-index </md-radio-button>
+
                 </md-radio-group>
 
                 <md-radio-group style="padding-left: 10px" ng-model="false" ng-show="problems &&  data.singleSelect == 'option-2' ">
-                  <md-radio-button  ng-class="{'md-checked':true }" value="Apple">Apple</md-radio-button>
-                  <md-radio-button value="Banana"> Banana </md-radio-button>
-                  <md-radio-button value="Mango">Mango</md-radio-button>
+                  <md-radio-button  ng-class="{'md-checked':true }" value="Apple">Time-since-last activity</md-radio-button>
+                  <md-radio-button value="Banana"> match-index </md-radio-button>
+
                 </md-radio-group>
 
               </div>
